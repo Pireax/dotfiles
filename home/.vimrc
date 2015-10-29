@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tomasr/molokai'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
@@ -56,6 +57,12 @@ if &term=~'xterm\\|rxvt'
 	let &t_EI.="\e[2 q"
 	let &t_te.="\e[2 q"
 	let &t_ut=''
+endif
+if $ConEmuANSI=='ON'
+    set term=xterm
+    set t_Co=256
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
 endif
 
 set showmatch " show matching braces
