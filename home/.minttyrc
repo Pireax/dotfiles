@@ -1,0 +1,13 @@
+BoldAsFont=yes
+CursorType=block
+Font=Consolas
+FontHeight=11
+FontSmoothing=full
+FontIsBold=no
+CursorBlinks=no
+Term=xterm-256color
+BackgroundColour=20,20,20
+CursorColour=255,135,0
+Locale=en_US
+Charset=UTF-8
+BoldAsColour=no

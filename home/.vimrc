@@ -25,7 +25,7 @@ set expandtab
 
 set relativenumber
 set number
-" set cursorline
+set cursorline
 set autoread
 
 set backspace=indent,eol,start
@@ -51,12 +51,18 @@ if has('gui_running')
     set guioptions-=L
     set guicursor+=n-v-c:blinkon0
 endif
-if &term=~'xterm\\|rxvt'
-	let &t_ti.="\e[2 q"
-	let &t_SI.="\e[6 q"
+if &term=~'xterm\|rxvt'
+"	let &t_ti.="\e[2 q"
+"	let &t_SI.="\e[6 q"
 	let &t_EI.="\e[2 q"
 	let &t_te.="\e[2 q"
 	let &t_ut=''
+
+    " This removes the delay when pressing Esc
+    let &t_ti.="\e[?7727h"
+    let &t_te.="\e[?7727l"
+    noremap <Esc>O[ <Esc>
+    noremap! <Esc>O[ <C-c>
 endif
 if $ConEmuANSI=='ON'
     set term=xterm
@@ -78,6 +84,10 @@ set encoding=utf8
 "}}}
 
 " Mappings {{{
+let mapleader=" "
+nnoremap <leader>r :CtrlPMRU<CR>
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 map <C-n> :NERDTreeToggle<CR>
 "}}}
 
